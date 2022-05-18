@@ -8,7 +8,4 @@ product = sys.argv[1]
 version = sys.argv[2]
 
 print(sys.argv[0])
-print(product)
-
-#message = "hello"
-#print(message) 
+print("Hello")
