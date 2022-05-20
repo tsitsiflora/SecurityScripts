@@ -1,0 +1,1 @@
+#this script splits ang joins text together
