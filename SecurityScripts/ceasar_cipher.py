@@ -11,16 +11,28 @@ def encrypt_char(text, key):
     for char in text:
         if char.isupper():
 
-            index_char = ord(char) - ord('A')
-            new_index = (index_char + key) % 26
-            new_char = chr(new_index + ord('A'))
+            index_char = ord(char) - ord('A') # subtract the unicode of A to get a value in the range 0-25
+            new_char = chr((index_char + key) % 26 + ord('A'))
             cipher += new_char
+        
+        elif char.islower():
+
+            index_char = ord(char) - ord('a') # subtract the unicode of A to get a value in the range 0-25
+            new_char = chr((index_char + key) % 26 + ord('a'))
+            cipher += new_char
+
+        elif char.isdigit():
+
+            new_char = (int(char) + key) % 10 # if its a number, shift it's actual value
+            cipher += str(new_char)
+
         else:
             cipher += char
+
     return cipher
 
 def main():
-    ceasar_cipher = encrypt_char('TSITSI', 3)
+    ceasar_cipher = encrypt_char('TSITSI is coming on the 4th', 3)
     print(ceasar_cipher)
 
 if __name__ == '__main__':
