@@ -1,4 +1,6 @@
 # the bubble sort algorithm
+# time complexity: O(n^2)
+
 import random
 
 def bubble_sort(array):
