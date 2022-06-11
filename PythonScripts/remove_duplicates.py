@@ -13,8 +13,8 @@ def remove_dups(array):
             new_list.append(i)
         else:
             pass
-    return new_list
+    return sorted(new_list)
 
-array = [1, 2, 3, 3, 4, 5, 5, 6, 5, 3, 0]
+array = [9, 9, 5, 7, 3, 4, 5, 2, 4, 0, 1, 5, 6, 7]
 print(remove_duplicates(array))
 print(remove_dups(array))

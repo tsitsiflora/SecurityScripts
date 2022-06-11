@@ -2,12 +2,12 @@
 
 
 def merge(left, right):
-    # If the first array is empty, then nothing needs
+    # If the left array is empty, then nothing needs
     # to be merged, and you can return the second array as the result
     if len(left) == 0:
         return right
 
-    # If the second array is empty, then nothing needs
+    # If the right array is empty, then nothing needs
     # to be merged, and you can return the first array as the result
     if len(right) == 0:
         return left
