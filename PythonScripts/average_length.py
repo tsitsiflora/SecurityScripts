@@ -3,11 +3,8 @@
 import string
 
 def average_length(sentence):
-    for p in string.punctuation:
-        sentence = sentence.replace(p, '')
-
     words = sentence.split()
-    return round(sum(len(word) for word in words)/len(words), 2)
+    return round(sum(len(word) for word in words if word not in string.punctuation)/len(words))
 
 
 print(average_length("My name is tsitsi."))
