@@ -20,3 +20,13 @@
 # 192.168.42.2:1234 -> 216.58.195.238:443
 # 192.168.42.1:5555 -> 216.58.195.238:24
 # Should output: 192.168.42.2
+
+def log_checker(log_file):
+    with open("log_file", "r") as f:
+        ip_set = set()
+        for line in f:
+            ip_set.add(line)
+        
+    for i in ip_set:
+        s_add = i.split()[:"-"]
+        d_add = i.split()[">":]
