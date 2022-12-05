@@ -5,7 +5,6 @@
 
 
 def divide_or_square(n):
-    res = 0
     if n % 5 == 0:
         square_root = n ** 0.5
         return f'The square root is {square_root}'
